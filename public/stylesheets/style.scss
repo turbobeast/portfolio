@@ -1,0 +1,628 @@
+@mixin border-radius ($radius : 8px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin border-4-radi ($rad1: 0, $rad2 : 0, $rad3: 0, $rad4 : 0) {
+	-webkit-border-radius: $rad1 $rad2 $rad3 $rad4;
+	-moz-border-radius: $rad1 $rad2 $rad3 $rad4;
+	-ms-border-radius: $rad1 $rad2 $rad3 $rad4;
+	-o-border-radius: $rad1 $rad2 $rad3 $rad4;
+	border-radius: $rad1 $rad2 $rad3 $rad4;
+}
+
+@mixin box-shads ($distX : 2px, $distY : 2px, $blur : 2px, $size : 2px, $col: #000) {
+	-webkit-box-shadow: $distX $distY $blur $size $col;
+	-o-box-shadow: $distX $distY $blur $size $col;
+	-moz-box-shadow: $distX $distY $blur $size $col;
+	-ms-box-shadow: $distX $distY $blur $size $col;
+	box-shadow: $distX $distY $blur $size $col;
+}
+
+@mixin square ($size) {
+	width: $size;
+	height: $size;
+}
+
+@mixin abs-center ($wid, $hite, $halfwid, $halfhite) {
+	position: absolute;
+	width: $wid;
+	height: $hite;
+	top: 50%;
+	left: 50%;
+	margin-left: -$halfwid;
+	margin-top: -$halfhite;
+}
+
+@mixin overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+@mixin transition ($time, $ease : ease, $prop : all) {
+	-o-transition: $prop $time ease;
+    -ms-transition: $prop $time ease;
+    -moz-transition: $prop $time ease;
+    -webkit-transition: $prop $time ease;
+    transition: $prop $time ease;
+}
+
+@mixin perspective ($persp) {
+	-webkit-perspective : $persp;
+	-moz-perspective : $persp;
+	-o-perspective : $persp;
+	-ms-perspective : $persp;
+	perspective : $persp;
+}
+
+@mixin transformStyle () {
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+@mixin translateXYZ ($transX : 0px, $transY : 0px, $transZ : 0px ) {
+	-webkit-transform: translateX( $transX ) translateY(  $transY )  translateZ( $transZ );
+	-moz-transform: translateX( $transX ) translateY(  $transY )  translateZ( $transZ );
+	-o-transform: translateX( $transX ) translateY(  $transY )  translateZ( $transZ );
+	-ms-transform: translateX( $transX ) translateY(  $transY )  translateZ( $transZ );
+	transform: translateX( $transX ) translateY(  $transY )  translateZ( $transZ );
+}
+
+@mixin rotateXYZ ($degX : 0deg ,$degY : 0deg ,$degZ : 0deg) {
+	-webkit-transform: rotateX( $degX ) rotateY( $degY )  rotateZ( $degZ );
+	-moz-transform: rotateX( $degX ) rotateY( $degY )  rotateZ( $degZ );
+	-o-transform: rotateX( $degX ) rotateY( $degY )  rotateZ( $degZ );
+	-ms-transform: rotateX( $degX ) rotateY( $degY )  rotateZ( $degZ );
+	transform: rotateX( $degX ) rotateY( $degY )  rotateZ( $degZ );
+}
+@mixin placeholdercolor ($col) {
+	:-webkit-input-placeholder { /* WebKit browsers */
+	   color: $col;
+	}
+	::-webkit-input-placeholder { /* WebKit browsers */
+	   color: $col;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color: $col;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color: $col;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */
+		color: $col;
+	}
+}
+
+$darkness : #09161E;
+
+//$darkness : #201921;
+$red: #EF4136;
+$pinky: #9F9DC2;
+
+//$project: #EF4136;
+//$skill: #F4975A;
+$skill: #9F9DC2;
+$project: #61C1B8;
+$contact: #EF4136;
+
+$maroon: #7B384F;
+
+//$contact: #9F9DC2;
+
+body , html {
+	font-family: 'Share Tech Mono', sans-serif;
+	font-family: 'Electrolize', sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	background: $darkness;
+	color: $pinky;
+	width: 100%;
+	background: $darkness url('../images/grid.gif');
+
+}
+
+header , footer , nav , article , aside {
+	display: block;
+}
+
+div , ul , li , p , h1, h2, h3, h4 , footer, header, nav, article {
+	margin : 0;
+	padding: 0;
+}
+
+a img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+	color: $red;
+	
+}
+
+li {
+	list-style: none;
+}
+
+.clear {
+	width: 100%;
+	height: 0;
+	display: block;
+	clear: both;
+	float: none;
+}
+
+h1 , h2 , h3 , h4 , h5 , h6 {
+	font-weight: normal;
+}
+
+.stage {
+	position: relative;
+}
+.blocks {
+	position: absolute;
+	z-index: 0;
+}
+#circlecanvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	width: 90%;
+	//height: 26%;
+
+	h1 { 
+		margin-top: 18px;
+		padding-left: 80px;
+		background: url('../images//bluevader.png') no-repeat 5px 6px;
+	}
+
+	h2 {
+		margin-left: 5%;
+		width: 90%;
+		font-size: 24px;
+		opacity: 0.6;
+		padding-left: 4px;
+		//padding: 0 0;
+
+	}
+	//background: rgba(35,62, 71, 0.9);
+}
+h1 {
+	text-align: left;
+	font-size: 50px;
+	color: $contact;
+	width: 90%;
+	margin-left: 5%;
+	padding: 0;
+}
+
+nav {
+	right: 12px;
+	top: 12px;
+	font-size: 36px;
+	width: 90%;
+	margin: 0 5%;
+	margin-top: 20px;
+	margin-bottom: 60px;
+	padding: 4px 0;
+
+	li {
+		display: inline-block;
+		padding-left: 4px;
+		padding-right: 18px;
+
+		.projects {
+			padding-left: 0;
+			color: $project;
+			border-bottom: solid 0px $project;
+			.marker {
+
+				background: $project;
+			}
+
+		}
+
+		.skills {
+			color: $skill;
+			border-bottom: solid 0px $skill;
+			.marker {
+				background: $skill;
+			}
+		}
+
+		.contact {
+			color: $contact;
+			border-bottom: solid 0px $contact;
+			.marker {
+				background: $contact;
+			}
+		}
+
+
+		a {
+			opacity: 0.7;
+			@include transition(.4s);
+			position: relative;
+			.marker {
+				@include transition(.4s);
+				width: 0%;
+				height: 3px;
+				display: inline-block;
+				position : absolute;
+				bottom: -6px;
+			}
+		}
+
+		.current {
+			opacity: 1;
+
+			.marker {
+				width: 100%;
+			}
+		}
+
+	}
+
+}
+
+.wrp {
+	position: absolute;
+	top: 0;
+	left: 5%;
+	width: 90%;
+	height: 100%;
+
+	@include transformStyle;
+	@include perspective(100px);
+}
+
+
+.stage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80%;
+	@include transformStyle;
+	@include perspective(9000px);
+	padding-top: 200px;
+	
+
+	.cube {
+		 width: 80px;
+		 height: 80px;
+		 position: absolute;
+		 opacity: 0.4;
+		 overflow: hidden;
+	}
+
+	.project {
+		background: $project; //rgba(244,23,42,0.5);
+		h3 {
+			display: none;
+		}
+	}
+
+	.skill {
+		background: $skill;
+		color: $skill;
+	}
+
+
+	.contact {
+		background: $contact;
+		color: $contact;
+		a {
+			color: $contact;
+		}
+		padding-bottom: 12px;
+	}
+
+	.ghost {
+		opacity: 0;
+		h3 {
+			display: block;
+		}
+	}
+
+	.chosen , .ghost {
+		width: 100%;
+		z-index: 99;
+		height: auto;
+		box-sizing: border-box;
+		margin-bottom: 24px;
+		border: solid $maroon 1px;
+		h3 {
+			padding: 0 12px;
+			display: block;
+			font-size: 72px;
+			color: $darkness;
+			a {
+				color: $darkness;
+
+			}
+		}
+		a {
+			color: $maroon;
+		}
+
+		.description {
+			padding: 8px 18px;
+			color: $darkness;
+			a {
+				color: $maroon;
+			}
+		}
+
+		.openlink {
+			display: inline-block;
+			padding: 8px 18px;
+			font-size: 40px;
+			color: $maroon;
+		}
+
+		.tags {
+			padding-left: 18px;
+			line-height: 0;
+			margin-bottom: 24px;
+			margin-top: 12px;
+		}
+		.tags li {
+			font-size: 24px;
+			line-height: 20px;
+			margin-right: 10px;
+			text-align: center;
+			color: $darkness;
+			display: inline-block;
+
+			
+		}
+
+		.clink {
+			margin-left: 12px;
+			font-size: 24px;
+			a {
+				color: $darkness;
+				margin-bottom: 12px;
+			}
+		}
+
+		address {
+			margin-top: 14px;
+			margin-left: 12px;
+			color: $darkness;
+		}
+
+
+	}
+
+	.project .tags li {
+			background: $maroon;
+			color: $project;
+			padding: 2px 6px;
+		}
+
+	.chosen {
+		padding: 0;
+	}
+
+}
+
+// footer {
+// 	position: fixed;
+// 	bottom: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	background: url('../images/bgrid.gif');
+// 	height: 66px;
+// 	border-top: solid white 2px;
+// 	text-align: center;
+
+// 	a {
+// 		display: inline-block;
+// 		width: 56px;
+// 		height: 55px;
+// 		//margin-top: 7px;
+// 		margin: 7px 6px;
+// 	}
+
+// 	.github {
+// 		background: url('../images/octocat.png') no-repeat center center;
+// 		border-radius: 100%;
+// 	}
+
+// 	.codepen {
+// 		background: url('../images/codepen.png') no-repeat center center;
+// 	}
+// }
+
+
+@media screen and ( max-width: 780px ) {
+	header h1 {
+		font-size: 42px;
+		background-size: 42px 30px;
+		padding-left: 56px;
+		background-position: 4px 8px;
+	}
+
+	header h2 {
+		font-size: 20px;
+	}
+
+	nav {
+		font-size: 32px;
+		li {
+			padding-right: 12px;
+		}
+	}
+
+	.stage {
+
+		padding-top: 180px;
+
+		.chosen , .ghost {
+			margin-bottom: 12px;
+			h3 {
+				padding: 8px;
+				font-size: 42px;
+				padding-left: 16px;
+			}
+
+			.description {
+				padding: 8px 16px;
+			}
+
+
+			.tags {
+				padding-left: 16px;
+				line-height: 0;
+				margin-bottom: 24px;
+				margin-top: 8px;
+			}
+
+			.tags li {
+				display: inline-block;
+				font-size: 22px;
+				padding-right: 14px;
+
+			}
+
+			address {
+				font-size: 16px;
+				margin-bottom: 4px;
+			}
+
+
+			.clink {
+				font-size: 16px;
+				margin-bottom: 4px;
+			}
+
+			
+		}
+	}
+
+}
+
+
+
+@media screen and ( max-width: 660px ) {
+
+
+	header h1 {
+		font-size: 34px;
+		background-size: 26px 16px;
+		padding-left: 42px;
+		background-position: 8px 3px;
+
+	}
+
+	header h2 {
+		font-size: 18px;
+	}
+
+	nav {
+		font-size: 28px;
+		margin-top: 6px;
+		li {
+			padding-right: 8px;
+
+			a {
+				.marker {
+					height: 2px;
+					bottom: -2px;
+				}
+			}
+		}
+
+	}
+
+	.stage {
+
+		padding-top: 134px;
+
+		.chosen , .ghost {
+			margin-bottom: 12px;
+			h3 {
+				padding: 8px;
+				font-size: 42px;
+				padding-bottom: 8px;
+				line-height: 40px;
+
+			}
+
+			.description {
+				padding: 6px 10px;
+			}
+
+
+			.tags {
+				padding-left: 10px;
+				margin-bottom: 16px;
+				margin-top: 0px;
+			}
+
+			.tags li {
+				display: inline-block;
+				font-size: 14px;
+				padding-right: 2px;
+				margin-right: 8px;
+				margin-bottom: 0;
+
+			}
+
+			address {
+				
+				margin-top: 4px;
+			}
+		}
+	}
+}
+
+@media screen and ( max-width: 580px ) {
+	header h1  {
+		font-size: 26px;
+	}
+}
+
+
+@media screen and ( max-width: 480px ) {
+	header h1 {
+		font-size: 18px;
+		background-size: 18px 13px;
+		padding-left: 36px;
+		//background-position: 4px 8px;
+	}
+
+	header h2 {
+		font-size: 14px;
+	}
+
+	nav {
+		font-size: 20px;
+		li {
+
+		}
+
+	}
+
+	.stage {
+		padding-top: 116px;
+	}
+}

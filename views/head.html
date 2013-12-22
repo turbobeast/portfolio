@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>{{pageTitle}}</title>
+	<link href="/public/stylesheets/style.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="/public/images/favicon.ico" />
+  <link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+<script>
+(function () {
+  function createElements(elements) {
+    var i = 0;
+    for(i = 0; i < elements.length; i += 1) {
+      document.createElement(elements[i]);
+    } 
+  }
+  createElements(['header', 'nav', 'article', 'footer']);
+}());
+if(!window.console) {
+  window.console = {};
+  window.console.log = function () {};
+}
+</script>
+</head>

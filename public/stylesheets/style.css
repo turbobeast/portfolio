@@ -1,0 +1,337 @@
+body, html {
+  font-family: 'Share Tech Mono', sans-serif;
+  font-family: 'Electrolize', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #09161e;
+  color: #9f9dc2;
+  width: 100%;
+  background: #09161e url("../images/grid.gif"); }
+
+header, footer, nav, article, aside {
+  display: block; }
+
+div, ul, li, p, h1, h2, h3, h4, footer, header, nav, article {
+  margin: 0;
+  padding: 0; }
+
+a img {
+  border: none; }
+
+a {
+  text-decoration: none;
+  color: #ef4136; }
+
+li {
+  list-style: none; }
+
+.clear {
+  width: 100%;
+  height: 0;
+  display: block;
+  clear: both;
+  float: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; }
+
+.stage {
+  position: relative; }
+
+.blocks {
+  position: absolute;
+  z-index: 0; }
+
+#circlecanvas {
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+header {
+  position: absolute;
+  top: 0;
+  width: 90%; }
+  header h1 {
+    margin-top: 18px;
+    padding-left: 80px;
+    background: url("../images//bluevader.png") no-repeat 5px 6px; }
+  header h2 {
+    margin-left: 5%;
+    width: 90%;
+    font-size: 24px;
+    opacity: 0.6;
+    padding-left: 4px; }
+
+h1 {
+  text-align: left;
+  font-size: 50px;
+  color: #ef4136;
+  width: 90%;
+  margin-left: 5%;
+  padding: 0; }
+
+nav {
+  right: 12px;
+  top: 12px;
+  font-size: 36px;
+  width: 90%;
+  margin: 0 5%;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  padding: 4px 0; }
+  nav li {
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 18px; }
+    nav li .projects {
+      padding-left: 0;
+      color: #61c1b8;
+      border-bottom: solid 0px #61c1b8; }
+      nav li .projects .marker {
+        background: #61c1b8; }
+    nav li .skills {
+      color: #9f9dc2;
+      border-bottom: solid 0px #9f9dc2; }
+      nav li .skills .marker {
+        background: #9f9dc2; }
+    nav li .contact {
+      color: #ef4136;
+      border-bottom: solid 0px #ef4136; }
+      nav li .contact .marker {
+        background: #ef4136; }
+    nav li a {
+      opacity: 0.7;
+      -o-transition: all 0.4s ease;
+      -ms-transition: all 0.4s ease;
+      -moz-transition: all 0.4s ease;
+      -webkit-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      position: relative; }
+      nav li a .marker {
+        -o-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        width: 0%;
+        height: 3px;
+        display: inline-block;
+        position: absolute;
+        bottom: -6px; }
+    nav li .current {
+      opacity: 1; }
+      nav li .current .marker {
+        width: 100%; }
+
+.wrp {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 100px;
+  -moz-perspective: 100px;
+  -o-perspective: 100px;
+  -ms-perspective: 100px;
+  perspective: 100px; }
+
+.stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 9000px;
+  -moz-perspective: 9000px;
+  -o-perspective: 9000px;
+  -ms-perspective: 9000px;
+  perspective: 9000px;
+  padding-top: 200px; }
+  .stage .cube {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    opacity: 0.4;
+    overflow: hidden; }
+  .stage .project {
+    background: #61c1b8; }
+    .stage .project h3 {
+      display: none; }
+  .stage .skill {
+    background: #9f9dc2;
+    color: #9f9dc2; }
+  .stage .contact {
+    background: #ef4136;
+    color: #ef4136;
+    padding-bottom: 12px; }
+    .stage .contact a {
+      color: #ef4136; }
+  .stage .ghost {
+    opacity: 0; }
+    .stage .ghost h3 {
+      display: block; }
+  .stage .chosen, .stage .ghost {
+    width: 100%;
+    z-index: 99;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    border: solid #7b384f 1px; }
+    .stage .chosen h3, .stage .ghost h3 {
+      padding: 0 12px;
+      display: block;
+      font-size: 72px;
+      color: #09161e; }
+      .stage .chosen h3 a, .stage .ghost h3 a {
+        color: #09161e; }
+    .stage .chosen a, .stage .ghost a {
+      color: #7b384f; }
+    .stage .chosen .description, .stage .ghost .description {
+      padding: 8px 18px;
+      color: #09161e; }
+      .stage .chosen .description a, .stage .ghost .description a {
+        color: #7b384f; }
+    .stage .chosen .openlink, .stage .ghost .openlink {
+      display: inline-block;
+      padding: 8px 18px;
+      font-size: 40px;
+      color: #7b384f; }
+    .stage .chosen .tags, .stage .ghost .tags {
+      padding-left: 18px;
+      line-height: 0;
+      margin-bottom: 24px;
+      margin-top: 12px; }
+    .stage .chosen .tags li, .stage .ghost .tags li {
+      font-size: 24px;
+      line-height: 20px;
+      margin-right: 10px;
+      text-align: center;
+      color: #09161e;
+      display: inline-block; }
+    .stage .chosen .clink, .stage .ghost .clink {
+      margin-left: 12px;
+      font-size: 24px; }
+      .stage .chosen .clink a, .stage .ghost .clink a {
+        color: #09161e;
+        margin-bottom: 12px; }
+    .stage .chosen address, .stage .ghost address {
+      margin-top: 14px;
+      margin-left: 12px;
+      color: #09161e; }
+  .stage .project .tags li {
+    background: #7b384f;
+    color: #61c1b8;
+    padding: 2px 6px; }
+  .stage .chosen {
+    padding: 0; }
+
+@media screen and (max-width: 780px) {
+  header h1 {
+    font-size: 42px;
+    background-size: 42px 30px;
+    padding-left: 56px;
+    background-position: 4px 8px; }
+
+  header h2 {
+    font-size: 20px; }
+
+  nav {
+    font-size: 32px; }
+    nav li {
+      padding-right: 12px; }
+
+  .stage {
+    padding-top: 180px; }
+    .stage .chosen, .stage .ghost {
+      margin-bottom: 12px; }
+      .stage .chosen h3, .stage .ghost h3 {
+        padding: 8px;
+        font-size: 42px;
+        padding-left: 16px; }
+      .stage .chosen .description, .stage .ghost .description {
+        padding: 8px 16px; }
+      .stage .chosen .tags, .stage .ghost .tags {
+        padding-left: 16px;
+        line-height: 0;
+        margin-bottom: 24px;
+        margin-top: 8px; }
+      .stage .chosen .tags li, .stage .ghost .tags li {
+        display: inline-block;
+        font-size: 22px;
+        padding-right: 14px; }
+      .stage .chosen address, .stage .ghost address {
+        font-size: 16px;
+        margin-bottom: 4px; }
+      .stage .chosen .clink, .stage .ghost .clink {
+        font-size: 16px;
+        margin-bottom: 4px; } }
+@media screen and (max-width: 660px) {
+  header h1 {
+    font-size: 34px;
+    background-size: 26px 16px;
+    padding-left: 42px;
+    background-position: 8px 3px; }
+
+  header h2 {
+    font-size: 18px; }
+
+  nav {
+    font-size: 28px;
+    margin-top: 6px; }
+    nav li {
+      padding-right: 8px; }
+      nav li a .marker {
+        height: 2px;
+        bottom: -2px; }
+
+  .stage {
+    padding-top: 134px; }
+    .stage .chosen, .stage .ghost {
+      margin-bottom: 12px; }
+      .stage .chosen h3, .stage .ghost h3 {
+        padding: 8px;
+        font-size: 42px;
+        padding-bottom: 8px;
+        line-height: 40px; }
+      .stage .chosen .description, .stage .ghost .description {
+        padding: 6px 10px; }
+      .stage .chosen .tags, .stage .ghost .tags {
+        padding-left: 10px;
+        margin-bottom: 16px;
+        margin-top: 0px; }
+      .stage .chosen .tags li, .stage .ghost .tags li {
+        display: inline-block;
+        font-size: 14px;
+        padding-right: 2px;
+        margin-right: 8px;
+        margin-bottom: 0; }
+      .stage .chosen address, .stage .ghost address {
+        margin-top: 4px; } }
+@media screen and (max-width: 580px) {
+  header h1 {
+    font-size: 26px; } }
+@media screen and (max-width: 480px) {
+  header h1 {
+    font-size: 18px;
+    background-size: 18px 13px;
+    padding-left: 36px; }
+
+  header h2 {
+    font-size: 14px; }
+
+  nav {
+    font-size: 20px; }
+
+  .stage {
+    padding-top: 116px; } }

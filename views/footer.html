@@ -1,0 +1,30 @@
+<script src="/public/javascripts/jq.js"></script>
+<script src="/public/javascripts/mustache.js"></script>
+<script src="/public/javascripts/modernizr.min.js"></script>
+<script src="/public/javascripts/renderer.js"></script>
+<script src="/public/javascripts/resizor.js"></script>
+<script src="/public/javascripts/cubes.js"></script>
+<script src="/public/javascripts/navigation.js"></script>
+<script>
+var transformSupported = (function () {
+    var lem = document.createElement('div'),
+    props = ['transform', 'webkitTransform', 'MozTransform', 'msTransform', 'OTransform'],
+    i = 0;
+
+    for(i = 0; i < props.length; i += 1) {
+    	if(lem.style[props[i]] !== undefined) {
+    		return true;
+    	}
+    }
+
+    return false;
+    }());
+TURBOBEAST_RESIZOR.addHandler(TURBOBEAST_NAVIGATION.handleResize);
+TURBOBEAST_RESIZOR.init();
+if(transformSupported) {
+	TURBOBEAST_CUBES.init(TURBOBEAST_NAVIGATION.start);
+} else {
+	$('.ghost').css({ 'opacity': '1'});
+}
+//TURBOBEAST_CUBES.init(TURBOBEAST_NAVIGATION.start);
+</script>
