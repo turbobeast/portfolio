@@ -18,7 +18,7 @@ exports.projects = [
 	{
 		name : "anonymas",
 		slug : "anonymas",
-		description : "Send and receive anonymous messages with your Facebook friends. You get one guess, if you’re wrong, the sender’s identity will remain secret forever.",
+		description : "Send and receive anonymous messages with your Facebook friends. Giftees are allowed one chance to guess the identity of the gifter.",
 		tags : ["facebook api", "php", "responsive design"],
 		link : "http://www.anonymas.ca",
 		type : "project"
@@ -35,18 +35,10 @@ exports.projects = [
 		name : 'boivin',
 		slug : 'boivin',
 		description : 'Online resume for a certified translator.',
-		tags : ['responsive', 'angular'],
+		tags : ['responsive', 'angularjs'],
 		link : 'http://stonecanoe.ca/boivin/',
 		type : 'project'
 	},
-	// {
-	// 	name : "ad choices icon",
-	// 	slug : "ad_choices_icon",
-	// 	description : "",
-	// 	tags : ["responsive design"],
-	// 	link : "http://youradchoices.ca/icon",
-	// 	type : "project"
-	// },
 	{
 		name : "moon apparel",
 		slug : "moon_apparel",
@@ -54,13 +46,4 @@ exports.projects = [
 		tags : ["e-commerce", "shopify"],
 		link : "https://jewess-friesen-and-olson4184.myshopify.com/",
 		type : "project"
-	}
-	// {
-	// 	name : "meal ticket",
-	// 	slug : "meal_ticket",
-	// 	description : "An custom-themed e-commerce store built on the shopify platform.",
-	// 	tags : ["nodejs","responsive design"],
-	// 	link : "http://yourmealticket.ca",
-	// 	type : "project"
-	// }
-	];
+	}];

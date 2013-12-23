@@ -116,6 +116,7 @@ $project: #61C1B8;
 $contact: #EF4136;
 
 $maroon: #7B384F;
+$orange : #F4975A;
 
 //$contact: #9F9DC2;
 
@@ -219,7 +220,7 @@ nav {
 	width: 90%;
 	margin: 0 5%;
 	margin-top: 20px;
-	margin-bottom: 60px;
+	//margin-bottom: 60px;
 	padding: 4px 0;
 
 	li {
@@ -293,7 +294,7 @@ nav {
 }
 
 
-.stage {
+.stage , .skillstage {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -310,6 +311,7 @@ nav {
 		 position: absolute;
 		 opacity: 0.4;
 		 overflow: hidden;
+		 background: $orange;
 	}
 
 	.project {
@@ -334,20 +336,19 @@ nav {
 		padding-bottom: 12px;
 	}
 
+	
+
 	.ghost {
 		opacity: 0;
-		h3 {
-			display: block;
-		}
 	}
 
 	.chosen , .ghost {
 		width: 100%;
 		z-index: 99;
 		height: auto;
-		box-sizing: border-box;
 		margin-bottom: 24px;
 		border: solid $maroon 1px;
+
 		h3 {
 			padding: 0 12px;
 			display: block;
@@ -355,9 +356,9 @@ nav {
 			color: $darkness;
 			a {
 				color: $darkness;
-
 			}
 		}
+
 		a {
 			color: $maroon;
 		}
@@ -381,7 +382,7 @@ nav {
 			padding-left: 18px;
 			line-height: 0;
 			margin-bottom: 24px;
-			margin-top: 12px;
+			margin-top: 14px;
 		}
 		.tags li {
 			font-size: 24px;
@@ -409,7 +410,18 @@ nav {
 			color: $darkness;
 		}
 
+	}
 
+	.cube.about.chosen, .ghost.about {
+		color: $orange;
+		background: none;
+		border: none;
+		p {
+			font-size: 24px;
+			 a {
+			 	color: $project;
+			 }
+		}
 	}
 
 	.project .tags li {
@@ -418,40 +430,65 @@ nav {
 			padding: 2px 6px;
 		}
 
-	.chosen {
-		padding: 0;
+
+
+	.chosen .socmedia , .ghost .socmedia {
+
+		margin-top: 42px;
+		margin-left: 12px;
+		height: 50px;
+
+
+
+		li {
+			display: inline-block;
+			width: 42px;
+			height: 42px;
+			margin-right: 4px;
+
+
+
+			a {
+				@include transition(.4s);
+				display: block;
+				width: 42px;
+				height: 42px;
+				background: $orange url('../images/tumblr.png') center center;
+
+				&:hover {
+					background-color: $project;
+				}
+				border-radius: 4px;
+			}
+
+			.github {
+				background: $orange url('../images/octocat.png') center center;
+				&:hover {
+					background: $project url('../images/octocat.png') center center;
+				}
+			}
+
+			.codepen {
+				background: $orange url('../images/codepen.png') center center;
+			}
+
+			.instagram {
+				background: $orange url('../images/instagram.png') center center;
+			}
+
+			.twitter {
+				background: $orange url('../images/twitter.png') center center;
+			}
+
+			.tumblr {
+				background: $orange url('../images/tumblr.png') center center;
+			}
+		}
+
+		
 	}
 
 }
-
-// footer {
-// 	position: fixed;
-// 	bottom: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	background: url('../images/bgrid.gif');
-// 	height: 66px;
-// 	border-top: solid white 2px;
-// 	text-align: center;
-
-// 	a {
-// 		display: inline-block;
-// 		width: 56px;
-// 		height: 55px;
-// 		//margin-top: 7px;
-// 		margin: 7px 6px;
-// 	}
-
-// 	.github {
-// 		background: url('../images/octocat.png') no-repeat center center;
-// 		border-radius: 100%;
-// 	}
-
-// 	.codepen {
-// 		background: url('../images/codepen.png') no-repeat center center;
-// 	}
-// }
-
 
 @media screen and ( max-width: 780px ) {
 	header h1 {

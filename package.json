@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.0.1-4",
+  "version": "0.0.1-7",
   "private": true,
   "scripts": {
     "start": "node app"
@@ -11,6 +11,10 @@
     "hogan-express": "0.3.x"
   },
   "subdomain": "turbobeast",
+  "domains": [
+    "www.georgemichaelfaust.com",
+    "georgemichaelfaust.com"
+  ],
   "engines": {
     "node": "0.10.x"
   }

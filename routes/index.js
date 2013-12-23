@@ -12,7 +12,8 @@ exports.index = function(req, res){
 			projecttemplate : 'projecttemplate',
 			cubetemplate : 'cubetemplate',
 			skillstemplate : 'skillstemplate',
-			contacttemplate : 'contacttemplate'
+			contacttemplate : 'contacttemplate',
+			abouttemplate : 'abouttemplate'
 		}
 	});
 };

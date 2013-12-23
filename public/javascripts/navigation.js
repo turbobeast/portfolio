@@ -39,6 +39,7 @@ var TURBOBEAST_NAVIGATION = (function ($) {
 	function handlePageExit (pagename) {
 		var i = 0,
 		cb = null;
+
 		if(!pageGhosts[pagename]) return;
 
 		busyRemovingOld = true;
@@ -57,7 +58,7 @@ var TURBOBEAST_NAVIGATION = (function ($) {
 
 	function switchPage (pagename) {
 
-		var template;
+		var template, templateIdString = "#" + pagename + 'template';
 
 		if(pagename === currentPageName) {
 			return;
@@ -69,17 +70,7 @@ var TURBOBEAST_NAVIGATION = (function ($) {
 
 		handlePageExit(currentPageName);
 
-		switch(pagename) {
-			case 'projects':
-				template = $.trim($('#projecttemplate').html());
-			break;
-			case 'skills':
-				template = $.trim($('#skillstemplate').html());
-			break;
-			case 'contact':
-				template = $.trim($('#contacttemplate').html());
-			break;
-		}
+		template = $.trim($(templateIdString).html());
 
 		$.ajax({
 			method : "GET",
@@ -109,7 +100,6 @@ var TURBOBEAST_NAVIGATION = (function ($) {
 
 	nav.handleResize = function () {
 
-
 		var i = 0, ghosts;
 		if(!pageGhosts[currentPageName]) return;
 
@@ -128,22 +118,25 @@ var TURBOBEAST_NAVIGATION = (function ($) {
 		});
 	});
 
+	$('.aboutlink').bind('click', function (e) {
+		e.preventDefault();
+		switchPage($(this).data('page'));
+
+	});
+
 	function switchRelay () {
 		if(!started) return;
-		var urlAppendage = window.location.href.split('/').pop() || 'home';
+		var urlAppendage = window.location.href.split('/').pop() || 'about';
 		switchPage(urlAppendage);
 	}
 
 	nav.start = function () {
 		started = true;
 		switchRelay();
-	}
+	};
 
 	window.onpopstate = function () {
 		switchRelay();
-		// if(!started) return;
-		// var urlAppendage = window.location.href.split('/').pop() || 'home';
-		// switchPage(urlAppendage);
 	}
 
 	return nav;

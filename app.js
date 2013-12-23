@@ -34,7 +34,10 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 
-
+app.get('/about', function (req, res) {
+  var about = require('./models/about');
+  res.send( about );
+});
 
 app.get('/projects', function (req, res) {
   var projs = require('./models/projects');

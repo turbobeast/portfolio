@@ -1,7 +1,7 @@
 var TURBOBEAST_CUBES = (function ($){
 	var cube_controller = {},
 	cubeTemplate = $.trim($('#cubetemplate').html()),
-	$cubeStage = $('.skillstage'),
+	$cubeStage = $('.stage'),
 	cubeSize = 80,
 	width = $cubeStage.innerWidth(),
 	height = $cubeStage.innerHeight(),
@@ -101,6 +101,7 @@ var TURBOBEAST_CUBES = (function ($){
 		var i = 0;
 
 		//height = window.innerHeight;
+		console.log(arguments);
 
 		for(i = 0 ; i < cubies.length; i+= 1) {
 			if(cubies[i].slug === slug) {
@@ -171,18 +172,10 @@ var TURBOBEAST_CUBES = (function ($){
 
 	function setUpCubes (data, $stage, tranZ, category, cb) {
 
-		var machine, template;
-		switch(category) {
-			case 'projects':
-				template = $('#projecttemplate').html().trim();
-			break;
-			case 'skills':
-				template = $('#skillstemplate').html().trim();
-			break;
-			case 'contact':
-				template = $('#contacttemplate').html().trim();
-			break;
-		}
+		var templateIdString = "#" + category + 'template',
+		machine,
+		template;
+		template = $.trim( $(templateIdString).html() );
 
 		machine = renderMachine(template, $stage, tranZ);
 		function loopThrough (num) {
@@ -216,7 +209,6 @@ var TURBOBEAST_CUBES = (function ($){
 				}
 			}
 
-			//cubies[i].tranY += (cubies[i].tranYTarget - cubies[i].tranY) * 0.1;
 			cubies[i].width += (cubies[i].targetWidth - cubies[i].width) * 0.2;
 			cubies[i].left += (cubies[i].targetLeft - cubies[i].left) * 0.1;
 			cubies[i].tranZ += (cubies[i].tranZTarget - cubies[i].tranZ) * 0.1;
@@ -240,68 +232,45 @@ var TURBOBEAST_CUBES = (function ($){
 		animFrame(looper);
 	};
 
-	cube_controller.init = function (ready) {
-		var projs_done = false,
-		contacts_done = false,
-		skills_done = false;
+	function setUpCubeGroup (groupname, cb) {
+		var zDepth = Math.floor( Math.random() * -200);
+		$.ajax({
+			method : "GET",
+			url : '/' + groupname,
+			success : function (data) {
+				setUpCubes(data[groupname], $('.skillstage'), zDepth, groupname, function () {
+					if(typeof cb === 'function') {
+						cb();
+					}
+				});
+			},
+			error : function (err) {
+				console.log('error');
+				console.log(err);
+			}
+		});
+	}
 
-		function checkComplete () {
-			if(projs_done && skills_done && contacts_done) {
+	cube_controller.init = function (groups, ready) {
+
+		var totalComplete = 0;
+
+		function recurser (num) {
+			if(num === groups.length) {
 				if(typeof ready === 'function') {
 					ready();
 				}
+				return;
 			}
+
+			setUpCubeGroup(groups[num], function () {
+				recurser(num+1);
+			});
 		}
 
-		$.ajax({
-			method : "GET",
-			url : '/projects',
-			success : function (data) {
-				setUpCubes(data.projects, $('.skillstage'), -80, 'projects', function () {
-					projs_done = true;
-					checkComplete();
-				});
-			},
-			error : function (err) {
-				console.log('error');
-				console.log(err);
-			}
-		});
-
-		$.ajax({
-			method : "GET",
-			url : '/skills',
-			success : function (data) {
-				setUpCubes(data.skills, $('.skillstage'), -35, 'skills', function () {
-					skills_done = true;
-					checkComplete();
-				});
-			},
-			error : function (err) {
-				console.log('error');
-				console.log(err);
-			}
-		});
-
-		$.ajax({
-			method : "GET",
-			url : '/contact',
-			success : function (data) {
-				setUpCubes(data.contact, $('.skillstage'), -5, 'contact', function () {
-					contacts_done = true;
-					checkComplete();
-				});
-			},
-			error : function (err) {
-				console.log('error');
-				console.log(err);
-			}
-		});
-
+		recurser(0);
 		looper();
 	};
-
-	//cube_controller.init();
 
 	return cube_controller;
 

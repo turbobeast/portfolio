@@ -78,7 +78,6 @@ nav {
   width: 90%;
   margin: 0 5%;
   margin-top: 20px;
-  margin-bottom: 60px;
   padding: 4px 0; }
   nav li {
     display: inline-block;
@@ -141,7 +140,7 @@ nav {
   -ms-perspective: 100px;
   perspective: 100px; }
 
-.stage {
+.stage, .skillstage {
   position: absolute;
   top: 0;
   left: 0;
@@ -158,83 +157,121 @@ nav {
   -ms-perspective: 9000px;
   perspective: 9000px;
   padding-top: 200px; }
-  .stage .cube {
+  .stage .cube, .skillstage .cube {
     width: 80px;
     height: 80px;
     position: absolute;
     opacity: 0.4;
-    overflow: hidden; }
-  .stage .project {
+    overflow: hidden;
+    background: #f4975a; }
+  .stage .project, .skillstage .project {
     background: #61c1b8; }
-    .stage .project h3 {
+    .stage .project h3, .skillstage .project h3 {
       display: none; }
-  .stage .skill {
+  .stage .skill, .skillstage .skill {
     background: #9f9dc2;
     color: #9f9dc2; }
-  .stage .contact {
+  .stage .contact, .skillstage .contact {
     background: #ef4136;
     color: #ef4136;
     padding-bottom: 12px; }
-    .stage .contact a {
+    .stage .contact a, .skillstage .contact a {
       color: #ef4136; }
-  .stage .ghost {
+  .stage .ghost, .skillstage .ghost {
     opacity: 0; }
-    .stage .ghost h3 {
-      display: block; }
-  .stage .chosen, .stage .ghost {
+  .stage .chosen, .stage .ghost, .skillstage .chosen, .skillstage .ghost {
     width: 100%;
     z-index: 99;
     height: auto;
-    box-sizing: border-box;
     margin-bottom: 24px;
     border: solid #7b384f 1px; }
-    .stage .chosen h3, .stage .ghost h3 {
+    .stage .chosen h3, .stage .ghost h3, .skillstage .chosen h3, .skillstage .ghost h3 {
       padding: 0 12px;
       display: block;
       font-size: 72px;
       color: #09161e; }
-      .stage .chosen h3 a, .stage .ghost h3 a {
+      .stage .chosen h3 a, .stage .ghost h3 a, .skillstage .chosen h3 a, .skillstage .ghost h3 a {
         color: #09161e; }
-    .stage .chosen a, .stage .ghost a {
+    .stage .chosen a, .stage .ghost a, .skillstage .chosen a, .skillstage .ghost a {
       color: #7b384f; }
-    .stage .chosen .description, .stage .ghost .description {
+    .stage .chosen .description, .stage .ghost .description, .skillstage .chosen .description, .skillstage .ghost .description {
       padding: 8px 18px;
       color: #09161e; }
-      .stage .chosen .description a, .stage .ghost .description a {
+      .stage .chosen .description a, .stage .ghost .description a, .skillstage .chosen .description a, .skillstage .ghost .description a {
         color: #7b384f; }
-    .stage .chosen .openlink, .stage .ghost .openlink {
+    .stage .chosen .openlink, .stage .ghost .openlink, .skillstage .chosen .openlink, .skillstage .ghost .openlink {
       display: inline-block;
       padding: 8px 18px;
       font-size: 40px;
       color: #7b384f; }
-    .stage .chosen .tags, .stage .ghost .tags {
+    .stage .chosen .tags, .stage .ghost .tags, .skillstage .chosen .tags, .skillstage .ghost .tags {
       padding-left: 18px;
       line-height: 0;
       margin-bottom: 24px;
-      margin-top: 12px; }
-    .stage .chosen .tags li, .stage .ghost .tags li {
+      margin-top: 14px; }
+    .stage .chosen .tags li, .stage .ghost .tags li, .skillstage .chosen .tags li, .skillstage .ghost .tags li {
       font-size: 24px;
       line-height: 20px;
       margin-right: 10px;
       text-align: center;
       color: #09161e;
       display: inline-block; }
-    .stage .chosen .clink, .stage .ghost .clink {
+    .stage .chosen .clink, .stage .ghost .clink, .skillstage .chosen .clink, .skillstage .ghost .clink {
       margin-left: 12px;
       font-size: 24px; }
-      .stage .chosen .clink a, .stage .ghost .clink a {
+      .stage .chosen .clink a, .stage .ghost .clink a, .skillstage .chosen .clink a, .skillstage .ghost .clink a {
         color: #09161e;
         margin-bottom: 12px; }
-    .stage .chosen address, .stage .ghost address {
+    .stage .chosen address, .stage .ghost address, .skillstage .chosen address, .skillstage .ghost address {
       margin-top: 14px;
       margin-left: 12px;
       color: #09161e; }
-  .stage .project .tags li {
+  .stage .cube.about.chosen, .stage .ghost.about, .skillstage .cube.about.chosen, .skillstage .ghost.about {
+    color: #f4975a;
+    background: none;
+    border: none; }
+    .stage .cube.about.chosen p, .stage .ghost.about p, .skillstage .cube.about.chosen p, .skillstage .ghost.about p {
+      font-size: 24px; }
+      .stage .cube.about.chosen p a, .stage .ghost.about p a, .skillstage .cube.about.chosen p a, .skillstage .ghost.about p a {
+        color: #61c1b8; }
+  .stage .project .tags li, .skillstage .project .tags li {
     background: #7b384f;
     color: #61c1b8;
     padding: 2px 6px; }
-  .stage .chosen {
-    padding: 0; }
+  .stage .chosen .socmedia, .stage .ghost .socmedia, .skillstage .chosen .socmedia, .skillstage .ghost .socmedia {
+    margin-top: 42px;
+    margin-left: 12px;
+    height: 50px; }
+    .stage .chosen .socmedia li, .stage .ghost .socmedia li, .skillstage .chosen .socmedia li, .skillstage .ghost .socmedia li {
+      display: inline-block;
+      width: 42px;
+      height: 42px;
+      margin-right: 4px; }
+      .stage .chosen .socmedia li a, .stage .ghost .socmedia li a, .skillstage .chosen .socmedia li a, .skillstage .ghost .socmedia li a {
+        -o-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        display: block;
+        width: 42px;
+        height: 42px;
+        background: #f4975a url("../images/tumblr.png") center center;
+        border-radius: 4px; }
+        .stage .chosen .socmedia li a:hover, .stage .ghost .socmedia li a:hover, .skillstage .chosen .socmedia li a:hover, .skillstage .ghost .socmedia li a:hover {
+          background-color: #61c1b8; }
+      .stage .chosen .socmedia li .github, .stage .ghost .socmedia li .github, .skillstage .chosen .socmedia li .github, .skillstage .ghost .socmedia li .github {
+        background: #f4975a url("../images/octocat.png") center center; }
+        .stage .chosen .socmedia li .github:hover, .stage .ghost .socmedia li .github:hover, .skillstage .chosen .socmedia li .github:hover, .skillstage .ghost .socmedia li .github:hover {
+          background: #61c1b8 url("../images/octocat.png") center center; }
+      .stage .chosen .socmedia li .codepen, .stage .ghost .socmedia li .codepen, .skillstage .chosen .socmedia li .codepen, .skillstage .ghost .socmedia li .codepen {
+        background: #f4975a url("../images/codepen.png") center center; }
+      .stage .chosen .socmedia li .instagram, .stage .ghost .socmedia li .instagram, .skillstage .chosen .socmedia li .instagram, .skillstage .ghost .socmedia li .instagram {
+        background: #f4975a url("../images/instagram.png") center center; }
+      .stage .chosen .socmedia li .twitter, .stage .ghost .socmedia li .twitter, .skillstage .chosen .socmedia li .twitter, .skillstage .ghost .socmedia li .twitter {
+        background: #f4975a url("../images/twitter.png") center center; }
+      .stage .chosen .socmedia li .tumblr, .stage .ghost .socmedia li .tumblr, .skillstage .chosen .socmedia li .tumblr, .skillstage .ghost .socmedia li .tumblr {
+        background: #f4975a url("../images/tumblr.png") center center; }
 
 @media screen and (max-width: 780px) {
   header h1 {

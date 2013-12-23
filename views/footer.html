@@ -22,9 +22,8 @@ var transformSupported = (function () {
 TURBOBEAST_RESIZOR.addHandler(TURBOBEAST_NAVIGATION.handleResize);
 TURBOBEAST_RESIZOR.init();
 if(transformSupported) {
-	TURBOBEAST_CUBES.init(TURBOBEAST_NAVIGATION.start);
+	TURBOBEAST_CUBES.init(['about','projects','skills','contact'],TURBOBEAST_NAVIGATION.start);
 } else {
 	$('.ghost').css({ 'opacity': '1'});
 }
-//TURBOBEAST_CUBES.init(TURBOBEAST_NAVIGATION.start);
 </script>
