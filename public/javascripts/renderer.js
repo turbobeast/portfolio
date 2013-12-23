@@ -1,4 +1,5 @@
 var TURBOBEAST_RENDERER = (function ($) {
+	'use strict';
 	var renderer = {},
 	renderMachine;
 
@@ -15,13 +16,12 @@ var TURBOBEAST_RENDERER = (function ($) {
 				elem : $rendered
 
 			};
-		}
+		};
 	};
 
 	renderer.render = function (template, $container, data, cb) {
 		
 		var machine = renderMachine(template, $container),
-		i = 0,
 		ghosts = [];
 
 		function loopThrough (num) {
